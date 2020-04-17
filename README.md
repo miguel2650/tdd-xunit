@@ -16,10 +16,10 @@ Project in cooperation with @tobiaskkd (Tobias Karentius Kromann Dahl).
 The application purpose is to generate a password for the user, based on the user choices.  
 The specifications is as follows
 
-- As a user i want to specify the length of a password.
-- As a user i want to specify if the password should contain characters.
-- As a user i want to specify if the password should contain numbers.
-- As a user i want to specify if the password should contain special characters.
-- As a user i want to specify if the password should contain only uppercase.
-- As a user i want to specify if the password should contain only lowercase.
-- As a user i want the system to print my new password based on my choices.
+- As a user I want to specify the length of the password.
+- As a user I want to specify if the password should contain characters.
+- As a user I want to specify if the password should contain numbers.
+- As a user I want to specify if the password should contain special characters.
+- As a user I want to specify if the password should contain only uppercase.
+- As a user I want to specify if the password should contain only lowercase.
+- As a user I want the system to print my new password based on my choices.
