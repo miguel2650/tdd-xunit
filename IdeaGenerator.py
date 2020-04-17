@@ -1,0 +1,5 @@
+print("Welcome to IdeaGenerator")
+print("Answer the questions below to generate some new idea.")
+print("How old are you?")
+userinput = input()
+print("You are", userinput)
