@@ -1,13 +1,16 @@
 import unittest
-import PasswordGenerator
+from PasswordGenerator import PasswordGenerator
 
 
 class TestPasswordGenerator(unittest.TestCase):
 
     def test_length(self):
-        passwordGen = PasswordGenerator
+        # Instance of PasswordGenerator class
+        passwordGen = PasswordGenerator()
+
+        # Tests that must fail
         with self.assertRaises(Exception):
-            passwordGen.length = "asd"
+            passwordGen.length = "i am a string"
 
 
 if __name__ == "__main__":
