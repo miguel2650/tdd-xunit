@@ -23,3 +23,4 @@ The specifications is as follows
 - As a user I want to specify if the password should contain only uppercase.
 - As a user I want to specify if the password should contain only lowercase.
 - As a user I want the system to print my new password based on my choices.
+- The user should not be able to input a password length below 10 and above 30.
