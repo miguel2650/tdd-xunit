@@ -66,6 +66,15 @@ class TestPasswordGenerator(unittest.TestCase):
             self.assertEqual(testcase, self.passwordGen.lowercase)
             not self.assertRaises(Exception)
 
+    def test_generatePassword(self):
+
+        # Test cases
+        testCases = {[]}
+        for testCase in testCases:
+            self.assertTrue(str in self.passwordGen.generatePassword())
+            self.assertEqual(
+                type(self.passwordGen.generatePassword()), testcase)
+
 
 '''        # Test cases for expected exceptions.
         failTestCases = [0.1, "string", None]
