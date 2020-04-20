@@ -2,26 +2,73 @@ class PasswordGenerator():
 
     # TODO: IF ALL IS FALSE WHAT IS PASSWORD? Length of X and contain ????
     def __init__(self, length=10, characters=True, numbers=True, specialChar=True, uppercase=True, lowercase=True):
-        self.length = length
-        self.characters = characters
-        self.numbers = numbers
-        self.specialChar = specialChar
-        self.uppercase = uppercase
-        self.lowercase = lowercase
+        self.length = self.validateLength(length)
+        self.characters = self.validateBoolean(characters)
+        self.numbers = self.validateBoolean(numbers)
+        self.specialChar = self.validateBoolean(specialChar)
+        self.uppercase = self.validateBoolean(uppercase)
+        self.lowercase = self.validateBoolean(lowercase)
 
+    # Can act as a getter function
     @property
     def length(self):
         return self._length
 
     @length.setter
     def length(self, len):
-        if(type(len) is not int):
-            raise Exception("Please use a number as length!")
-        self._length = len
+        self._length = self.validateLength(len)
 
-    @length.getter
-    def length(self):
-        return self._length
+    @property
+    def characters(self):
+        return self._characters
+
+    @characters.setter
+    def characters(self, char):
+        self._characters = self.validateBoolean(char)
+
+    @property
+    def numbers(self):
+        return self._numbers
+
+    @numbers.setter
+    def numbers(self, num):
+        self._numbers = self.validateBoolean(num)
+
+    @property
+    def specialChar(self):
+        return self._specialchar
+
+    @specialChar.setter
+    def specialChar(self, sChar):
+        self._specialchar = self.validateBoolean(sChar)
+
+    @property
+    def uppercase(self):
+        return self._uppercase
+
+    @uppercase.setter
+    def uppercase(self, upCase):
+        self._uppercase = self.validateBoolean(upCase)
+
+    @property
+    def lowercase(self):
+        return self._lowercase
+
+    @lowercase.setter
+    def lowercase(self, lowCase):
+        self._lowercase = self.validateBoolean(lowCase)
+
+    def validateLength(self, len):
+        if(not type(len) is int):
+            raise TypeError("Expected int")
+        if(len < 10 or len > 30):
+            raise ValueError("Out of boundary exception")
+        return len
+
+    def validateBoolean(self, input):
+        if(not type(input) is bool):
+            raise TypeError("Expected boolean")
+        return input
 
     # Function generate password based on user settings.
     def generatePassword(self):
@@ -32,10 +79,11 @@ class PasswordGenerator():
 
 
 if __name__ == "__main__":
-    validInput = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
+    pass
+'''    validInput = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
     print("Welcome to password generator")
     print("Answer the questions below to generate a new password")
-    print("How long would you like your password to be?")
+    print("How long would you like your password to be? (minimum 10, maximum 30)")
     inputLength = int(input())
     print("Would you like your password to contain characters? yes/no")
     inputCharacters = str(input())
@@ -67,4 +115,4 @@ if __name__ == "__main__":
     print("Contain numbers:", passwordGen.numbers)
     print("Contain special characters:", passwordGen.specialChar)
     print("Contain uppercase letters:", passwordGen.uppercase)
-    print("Contain lowercase letters:", passwordGen.lowercase)
+    print("Contain lowercase letters:", passwordGen.lowercase)'''
