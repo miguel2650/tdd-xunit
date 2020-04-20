@@ -1,5 +1,5 @@
 from random import choices
-
+import string
 
 class PasswordGenerator():
 
@@ -75,8 +75,19 @@ class PasswordGenerator():
 
     # Function generate password based on user settings.
     def generatePassword(self):
-        choices()
-        return "Salt"
+        password = ''
+        if self.characters:
+            password += string.ascii_lowercase + string.ascii_uppercase
+        if self.numbers:
+            password += string.digits
+        if self.specialChar:
+            password += string.punctuation
+        if self.uppercase:
+            password = password.upper()
+        if self.lowercase:
+            password = password.lower()
+        
+        return ''.join(choices(password, k=self.length))
 
     def __str__(self):
         return str(self.length)
