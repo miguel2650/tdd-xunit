@@ -69,11 +69,51 @@ class TestPasswordGenerator(unittest.TestCase):
     def test_generatePassword(self):
 
         # Test cases
-        testCases = {[]}
+        testCases = [
+            {
+                "length": 10,
+                "characters": True,
+                "numbers": True,
+                "specialChar": True,
+                "uppercase": True,
+                "lowercase": True
+            },
+            {
+                "length": 30,
+                "characters": False,
+                "numbers": False,
+                "specialChar": False,
+                "uppercase": False,
+                "lowercase": False
+            },
+            {
+                "length": 15,
+                "characters": False,
+                "numbers": True,
+                "specialChar": False,
+                "uppercase": True,
+                "lowercase": False
+            },
+            {
+                "length": 15,
+                "characters": True,
+                "numbers": True,
+                "specialChar": True,
+                "uppercase": True,
+                "lowercase": True
+            }
+        ]
         for testCase in testCases:
+            self.passwordGen = PasswordGenerator(
+                testCase['length'],
+                testCase['characters'],
+                testCase['numbers'],
+                testCase['specialChar'],
+                testCase['uppercase'],
+                testCase['lowercase']
+            )
             self.assertTrue(str in self.passwordGen.generatePassword())
-            self.assertEqual(
-                type(self.passwordGen.generatePassword()), testcase)
+            self.assertEqual(self.passwordGen.generatePassword().isDigit(), testCase['numbers'])
 
 
 '''        # Test cases for expected exceptions.
