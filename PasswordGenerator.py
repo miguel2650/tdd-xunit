@@ -1,3 +1,6 @@
+from random import choices
+
+
 class PasswordGenerator():
 
     # TODO: IF ALL IS FALSE WHAT IS PASSWORD? Length of X and contain ????
@@ -72,7 +75,8 @@ class PasswordGenerator():
 
     # Function generate password based on user settings.
     def generatePassword(self):
-        pass
+        choices()
+        return "Salt"
 
     def __str__(self):
         return str(self.length)
