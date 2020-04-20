@@ -1,4 +1,4 @@
-from random import choices
+from random import randint
 import string
 
 class PasswordGenerator():
@@ -87,7 +87,7 @@ class PasswordGenerator():
         if self.lowercase:
             password = password.lower()
         
-        return ''.join(choices(password, k=self.length))
+        return ''.join([password[randint(0, len(password))] for i in range(self.length)])
 
     def __str__(self):
         return str(self.length)
