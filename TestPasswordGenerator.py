@@ -118,16 +118,11 @@ class TestPasswordGenerator(unittest.TestCase):
             # Assert that passwordToTest is alphabethical if testCase numbers is not True and vice versa.
             self.assertEqual(
                 passwordToTest.isalpha(), not testCase['numbers'])
-<<<<<<< HEAD
-            print("What is numbers? ", testCase["numbers"])
-            print("passwordToTest.isalpha()", passwordToTest.isalpha())
-=======
             # Assert that passwordToTest is lowercase if testCase uppercase is not True and testCase lowercase is True and vice versa.
             self.assertEqual(
                 passwordToTest.islower(), not testCase['uppercase'] and testCase['lowercase'])
             self.assertEqual(
                 passwordToTest.isupper(), not testCase['lowercase'] and testCase['uppercase'])
->>>>>>> 059d3a466dab72804c4fbf2d7a4f5aa0be1ae77f
 
 
 '''        # Test cases for expected exceptions.
