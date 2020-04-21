@@ -80,7 +80,7 @@ class TestPasswordGenerator(unittest.TestCase):
             },
             {
                 "length": 30,
-                "characters": False,
+                "characters": True,
                 "numbers": False,
                 "specialChar": False,
                 "uppercase": False,
@@ -113,8 +113,10 @@ class TestPasswordGenerator(unittest.TestCase):
                 testCase['lowercase']
             )
             #self.assertTrue(type(self.passwordGen.generatePassword()) is str)
+            passwordToTest = self.passwordGen.generatePassword()
+            print("Testcase: ", testCase, "Testing password: ", passwordToTest)
             self.assertEqual(
-                self.passwordGen.generatePassword().islower(), testCase['lowercase'])
+                passwordToTest.islower(), testCase['lowercase'])
 
 
 '''        # Test cases for expected exceptions.

@@ -1,6 +1,7 @@
 from random import randint
 import string
 
+
 class PasswordGenerator():
 
     # TODO: IF ALL IS FALSE WHAT IS PASSWORD? Length of X and contain ????
@@ -86,15 +87,16 @@ class PasswordGenerator():
             password = password.upper()
         if self.lowercase:
             password = password.lower()
-        
-        return ''.join([password[randint(0, len(password))] for i in range(self.length)])
+
+        return ''.join([password[randint(0, len(password) - 1)] for i in range(self.length)])
 
     def __str__(self):
         return str(self.length)
 
 
 if __name__ == "__main__":
-    pass
+    passwordGen = PasswordGenerator()
+    print(passwordGen.generatePassword())
 '''    validInput = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
     print("Welcome to password generator")
     print("Answer the questions below to generate a new password")
