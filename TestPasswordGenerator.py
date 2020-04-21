@@ -116,7 +116,7 @@ class TestPasswordGenerator(unittest.TestCase):
             passwordToTest = self.passwordGen.generatePassword()
             print("Testcase: ", testCase, "Testing password: ", passwordToTest)
             self.assertEqual(
-                passwordToTest.islower(), testCase['lowercase'])
+                passwordToTest.isalpha(), not testCase['numbers'])
 
 
 '''        # Test cases for expected exceptions.
