@@ -87,49 +87,10 @@ class PasswordGenerator():
             password = password.upper()
         if self.lowercase and not self.uppercase:
             password = password.lower()
-
-        return ''.join([password[randint(0, len(password)-1)] for i in range(self.length)])
+        try:
+            return ''.join([password[randint(0, len(password)-1)] for i in range(self.length)])
+        except ValueError:
+            raise Exception('Password should contain at least characters, special characters or numbers.')
 
     def __str__(self):
         return str(self.length)
-
-
-if __name__ == "__main__":
-    passwordGen = PasswordGenerator()
-    print(passwordGen.generatePassword())
-'''    validInput = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
-    print("Welcome to password generator")
-    print("Answer the questions below to generate a new password")
-    print("How long would you like your password to be? (minimum 10, maximum 30)")
-    inputLength = int(input())
-    print("Would you like your password to contain characters? yes/no")
-    inputCharacters = str(input())
-    if(inputCharacters.lower() not in validInput):
-        raise ValueError("Invalid answer")
-    print("Would you like your password to contain numbers? yes/no")
-    inputNumbers = str(input())
-    if(inputNumbers.lower() not in validInput):
-        raise ValueError("Invalid answer")
-    print("Would you like your password to contain special characters? yes/no")
-    inputSpecialChar = str(input())
-    if(inputSpecialChar.lower() not in validInput):
-        raise ValueError("Invalid answer")
-    print("Would you like your password to contain uppercase letters? yes/no")
-    inputUppercase = str(input())
-    if(inputUppercase.lower() not in validInput):
-        raise ValueError("Invalid answer")
-    print("Would you like your password to contain lowercase letters? yes/no")
-    inputLowercase = str(input())
-    if(inputLowercase.lower() not in validInput):
-        raise ValueError("Invalid answer")
-
-    passwordGen = PasswordGenerator(
-        inputLength, validInput[inputCharacters.lower()], validInput[inputNumbers.lower()], validInput[inputSpecialChar.lower()], validInput[inputUppercase.lower()], validInput[inputLowercase.lower()])
-
-    print('Success: Your new password will be created with following settings...')
-    print("Password length:", passwordGen.length)
-    print("Contain characters:", passwordGen.characters)
-    print("Contain numbers:", passwordGen.numbers)
-    print("Contain special characters:", passwordGen.specialChar)
-    print("Contain uppercase letters:", passwordGen.uppercase)
-    print("Contain lowercase letters:", passwordGen.lowercase)'''

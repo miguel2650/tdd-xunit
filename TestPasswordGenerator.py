@@ -80,8 +80,8 @@ class TestPasswordGenerator(unittest.TestCase):
             },
             {
                 "length": 30,
-                "characters": True,
-                "numbers": False,
+                "characters": False,
+                "numbers": True,
                 "specialChar": False,
                 "uppercase": False,
                 "lowercase": False
@@ -121,23 +121,33 @@ class TestPasswordGenerator(unittest.TestCase):
             # Assert that passwordToTest is lowercase if testCase uppercase is not True and testCase lowercase is True and vice versa.
             self.assertEqual(
                 passwordToTest.islower(), not testCase['uppercase'] and testCase['lowercase'])
+            # Assert that the final length of the password is the same as the length provided
             self.assertEqual(
-                passwordToTest.isupper(), not testCase['lowercase'] and testCase['uppercase'])
-
-
-'''        # Test cases for expected exceptions.
-        failTestCases = [0.1, "string", None]
-        for testcase in failTestCases:
-            print("Expect exception with a", type(testcase))
-            with self.assertRaises(Exception):
-                passwordGen.length = testcase
-
-        # Test cases for expected success.
-        successTestCases = [-1000, -1, 0, 1, 1000]
-        for testcase in successTestCases:
-            print("Expect success with ", testcase)
-            passwordGen.length = testcase
-            self.assertEqual(testcase, passwordGen.length)'''
+                len(passwordToTest), testCase['length'])
+        # Assert that setting all settings to False will throw an error
+        print('Expect Exception with all settings set to False:')
+        with self.assertRaises(Exception):
+            self.passwordGen = PasswordGenerator(
+                20,
+                False,
+                False,
+                False,
+                False,
+                False
+            )
+            self.passwordGen.generatePassword()
+        # Assert that setting all settings to False will throw an error
+        print('Expect no Exception with all settings set to True:')
+        self.passwordGen = PasswordGenerator(
+            20,
+            True,
+            True,
+            True,
+            True,
+            True
+        )
+        self.passwordGen.generatePassword()
+        not self.assertRaises(Exception)
 
 
 if __name__ == "__main__":
