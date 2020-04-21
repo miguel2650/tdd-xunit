@@ -83,12 +83,12 @@ class PasswordGenerator():
             password += string.digits
         if self.specialChar:
             password += string.punctuation
-        if self.uppercase:
+        if self.uppercase and not self.lowercase:
             password = password.upper()
-        if self.lowercase:
+        if self.lowercase and not self.uppercase:
             password = password.lower()
 
-        return ''.join([password[randint(0, len(password) - 1)] for i in range(self.length)])
+        return ''.join([password[randint(0, len(password)-1)] for i in range(self.length)])
 
     def __str__(self):
         return str(self.length)
