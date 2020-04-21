@@ -20,6 +20,7 @@ The specifications is as follows
 - As a user I want to specify if the password should contain characters.
 - As a user I want to specify if the password should contain numbers.
 - As a user I want to specify if the password should contain special characters.
+- As a user I want to specify if the password should contain both special characters, numbers and characters.
 - As a user I want to specify if the password should contain only uppercase.
 - As a user I want to specify if the password should contain only lowercase.
 - As a user I want the system to print my new password based on my choices.
